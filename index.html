@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./script.js" defer></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link href="/dist/output.css" rel="stylesheet" />
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  </head>
+  <body
+    class="font-[Epilogue] h-screen flex flex-col items-center justify-around"
+  >
+    <nav class="md:hidden w-screen fixed top-0 p-5">
+      <div class="flex">
+        <img class="cursor-pointer" src="./images/logo.svg" alt="logo" />
+        <button class="ml-auto z-20" onclick="toggleMenu()">
+          <img
+            id="menu-open"
+            class="block"
+            src="./images/icon-menu.svg"
+            alt="Menu icon"
+          />
+
+          <img
+            id="menu-close"
+            class="hidden"
+            src="./images/icon-close-menu.svg"
+            alt="Menu close icon"
+          />
+        </button>
+        <ul
+          id="menu"
+          class="fixed h-screen w-[250px] right-0 top-0 bg-white transition-all pt-28 pl-10 flex flex-col gap-7 text-gray translate-x-full"
+        >
+          <li
+            id="feature-click"
+            class="cursor-pointer flex items-center gap-2 flex-wrap"
+          >
+            <span class="hover:text-black">Features</span>
+            <img
+              id="arrow-down-fet"
+              class="block"
+              src="./images/icon-arrow-down.svg"
+              alt="Arrow Down"
+            />
+            <img
+              id="arrow-up-fet"
+              class="hidden"
+              src="./images/icon-arrow-up.svg"
+              alt="Arrow Up"
+            />
+            <ul id="show-feature-items" class="hidden flex flex-col gap-4 p-5">
+              <li class="flex items-center gap-5">
+                <img src="./images/icon-todo.svg" alt="" />
+                <span class="hover:text-black">Todo List</span>
+              </li>
+              <li class="flex items-center gap-5">
+                <img src="./images/icon-calendar.svg" alt="" />
+                <span class="hover:text-black">Calendar</span>
+              </li>
+              <li class="flex items-center gap-5">
+                <img src="./images/icon-reminders.svg" alt="" />
+                <span class="hover:text-black">Reminder</span>
+              </li>
+              <li class="flex items-center gap-5">
+                <img src="./images/icon-planning.svg" alt="" />
+                <span hover:text-black>Planning</span>
+              </li>
+            </ul>
+          </li>
+          <li
+            id="company-click"
+            class="cursor-pointer flex items-center gap-2 flex-wrap"
+          >
+            <span class="hover:text-black">Company</span>
+            <img
+              id="arrow-down-com"
+              class="block"
+              src="./images/icon-arrow-down.svg"
+              alt="Arrow Down"
+            />
+            <img
+              id="arrow-up-com"
+              class="hidden"
+              src="./images/icon-arrow-up.svg"
+              alt="Arrow Up"
+            />
+
+            <ul id="show-company-items" class="hidden flex flex-col gap-4 p-5">
+              <li class="flex items-center gap-5">
+                <span class="hover:text-black">History</span>
+              </li>
+              <li class="flex items-center gap-5">
+                <span class="hover:text-black">Our Team</span>
+              </li>
+              <li class="flex items-center gap-5">
+                <span class="hover:text-black">Blog</span>
+              </li>
+            </ul>
+          </li>
+          <li class="cursor-pointer">Careers</li>
+          <li class="cursor-pointer">About</li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav
+      class="hidden md:flex items-center gap-20 w-screen fixed top-0 py-5 px-10 bg-white"
+    >
+      <img class="cursor-pointer" src="./images/logo.svg" alt="logo" />
+      <ul class="flex flex-1 gap-9 items-center text-gray">
+        <li id="feature-click" class="cursor-pointer flex items-center gap-2">
+          <span class="hover:text-black">Features</span>
+          <img
+            id="arrow-down-fet"
+            class="block"
+            src="./images/icon-arrow-down.svg"
+            alt="Arrow Down"
+          />
+          <img
+            id="arrow-up-fet"
+            class="hidden"
+            src="./images/icon-arrow-up.svg"
+            alt="Arrow Up"
+          />
+          <ul
+            id="show-feature-items"
+            class="absolute hidden top-20 py-5 px-10 bg-white rounded-lg shadow-[rgba(0,0,0,0.3)] shadow-lg flex flex-col gap-5"
+          >
+            <li class="flex items-center gap-5">
+              <img src="./images/icon-todo.svg" alt="" />
+              <span class="hover:text-black">Todo List</span>
+            </li>
+            <li class="flex items-center gap-5">
+              <img src="./images/icon-calendar.svg" alt="" />
+              <span class="hover:text-black">Calendar</span>
+            </li>
+            <li class="flex items-center gap-5">
+              <img src="./images/icon-reminders.svg" alt="" />
+              <span class="hover:text-black">Reminder</span>
+            </li>
+            <li class="flex items-center gap-5">
+              <img src="./images/icon-planning.svg" alt="" />
+              <span hover:text-black>Planning</span>
+            </li>
+          </ul>
+        </li>
+        <li id="company-click" class="cursor-pointer flex items-center gap-2">
+          <span class="hover:text-black">Company</span>
+          <img
+            id="arrow-down-com"
+            class="block"
+            src="./images/icon-arrow-down.svg"
+            alt="Arrow Down"
+          />
+          <img
+            id="arrow-up-com"
+            class="hidden"
+            src="./images/icon-arrow-up.svg"
+            alt="Arrow Up"
+          />
+          <ul
+            id="show-company-items"
+            class="absolute hidden mt-56 py-5 px-10 bg-white rounded-lg shadow-[rgba(0,0,0,0.3)] shadow-lg flex flex-col gap-5"
+          >
+            <li class="flex items-center gap-5">
+              <span class="hover:text-black">History</span>
+            </li>
+            <li class="flex items-center gap-5">
+              <span class="hover:text-black">Our Team</span>
+            </li>
+            <li class="flex items-center gap-5">
+              <span class="hover:text-black">Blog</span>
+            </li>
+          </ul>
+        </li>
+        <li class="cursor-pointer hover:text-black">Careers</li>
+        <li class="cursor-pointer hover:text-black">About</li>
+        <li class="ml-auto cursor-pointer hover:text-black">Login</li>
+        <li
+          class="border-gray border-2 rounded-lg py-2 px-5 cursor-pointer hover:bg-black hover:text-white"
+        >
+          Register
+        </li>
+      </ul>
+    </nav>
+
+    <img
+      class="mt-20 block md:hidden"
+      src="./images/image-hero-mobile.png"
+      alt="Header Cover"
+    />
+    <header
+      class="mt-12 text-center md:text-left px-5 flex flex-col md:flex-row md:items-end md:mx-10 md:gap-32 lg:mb-20"
+    >
+      <div class="flex flex-col content-between md:mt-32">
+        <h1 class="text-3xl font-bold md:text-5xl xl:text-7xl">
+          Make
+          <br class="hidden md:block" />
+          remote work
+        </h1>
+        <p
+          class="font-light mt-3 text-sm md:text-base xl:text-lg md:mt-10 xl:max-w-lg md:mb-7 text-gray"
+        >
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
+        <button
+          class="mt-7 mb-9 lg:mb-20 w-36 bg-black text-white py-3 px-6 rounded-xl self-center md:self-start hover:bg-white hover:text-black hover:border-black border-2 transition-colors"
+        >
+          Learn more
+        </button>
+        <div class="hidden md:flex items-center gap-5 xl:gap-10 px-2">
+          <img
+            class="w-[65px] xl:w-[85px] cursor-pointer"
+            src="./images/client-databiz.svg"
+            alt="databiz icon"
+          />
+          <img
+            class="w-[65px] xl:w-[85px] cursor-pointer"
+            src="./images/client-audiophile.svg"
+            alt="audiophile icon"
+          />
+          <img
+            class="w-[65px] xl:w-[85px] cursor-pointer"
+            src="./images/client-meet.svg"
+            alt="meet icon"
+          />
+          <img
+            class="w-[65px] xl:w-[85px] cursor-pointer"
+            src="./images/client-maker.svg"
+            alt="maker icon"
+          />
+        </div>
+      </div>
+      <img
+        class="hidden md:block max-w-sm lg:max-w-md xl:max-w-lg self-center"
+        src="./images/image-hero-desktop.png"
+        alt="Header Cover"
+      />
+      <div class="flex items-center gap-5 py-5 px-2 md:hidden justify-center">
+        <img
+          class="w-[65px]"
+          src="./images/client-databiz.svg"
+          alt="databiz icon"
+        />
+        <img
+          class="w-[65px]"
+          src="./images/client-audiophile.svg"
+          alt="audiophile icon"
+        />
+        <img class="w-[65px]" src="./images/client-meet.svg" alt="meet icon" />
+        <img
+          class="w-[65px]"
+          src="./images/client-maker.svg"
+          alt="maker icon"
+        />
+      </div>
+    </header>
+  </body>
+</html>
